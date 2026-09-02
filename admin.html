@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>StreamVibe - Admin Panel</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+</head>
+<body>
+    <div class="app-container">
+        <nav class="sidebar">
+            <div class="logo">
+                <i class="fas fa-compact-disc"></i>
+                <h2>StreamVibe</h2>
+            </div>
+            <ul class="nav-links">
+                <li><a href="index.html"><i class="fas fa-arrow-left"></i> Back to Player</a></li>
+                <li class="active"><a href="#"><i class="fas fa-cog"></i> Admin Panel</a></li>
+            </ul>
+        </nav>
+
+        <main class="main-content admin-main">
+            <h2>Admin Panel</h2>
+            <div class="admin-container">
+                <!-- Add/Edit Song Form -->
+                <div class="admin-form-section">
+                    <h3 id="formTitle">Add New Song</h3>
+                    <form id="songForm">
+                        <input type="hidden" id="songId">
+                        
+                        <div class="form-group">
+                            <label for="title">Song Title *</label>
+                            <input type="text" id="title" required placeholder="e.g. Blinding Lights">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="artist">Artist *</label>
+                            <input type="text" id="artist" required placeholder="e.g. The Weeknd">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="album">Album</label>
+                            <input type="text" id="album" placeholder="e.g. After Hours">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="coverUrl">Cover Image URL</label>
+                            <input type="url" id="coverUrl" placeholder="https://example.com/image.jpg">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="audioUrl">Audio URL (Cloudinary) *</label>
+                            <input type="url" id="audioUrl" required placeholder="https://res.cloudinary.com/.../audio.mp3">
+                        </div>
+                        
+                        <div class="form-actions">
+                            <button type="submit" id="submitBtn" class="btn primary">Add Song</button>
+                            <button type="button" id="cancelBtn" class="btn secondary hidden">Cancel Edit</button>
+                        </div>
+                    </form>
+                    <div id="statusMessage" class="status-message"></div>
+                </div>
+
+                <!-- Manage Songs List -->
+                <div class="manage-songs-section">
+                    <h3>Manage Songs</h3>
+                    <div id="adminSongsList" class="admin-songs-list">
+                        <!-- Songs list injected here -->
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+    <script src="admin.js"></script>
+</body>
+</html>
